@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +27,15 @@ Route::get('/dashboard', function () {
 Route::middleware('auth','verified')->get('/TodoList', function(){
     return view('todolist');
 })->name('ui.todolist');
+Route::get('test',function(){
+
+    $myTime = Carbon\Carbon::now();
+
+    event(
+        new App\Events\StatusLinked('new task'.$myTime->toDateTimeString())
+    );
+    return "task has been created";
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

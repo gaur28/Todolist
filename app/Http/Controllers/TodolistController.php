@@ -39,7 +39,7 @@ class TodolistController extends Controller
      */
     public function show(Todolist $todolist)
     {
-        //
+        return new TodolistResourse(Todolist::all());
     }
 
     /**

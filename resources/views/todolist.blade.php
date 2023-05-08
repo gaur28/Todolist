@@ -78,10 +78,14 @@
             <div class="row">
                <div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3">
                   <div class="add-control">
-                     <div class="form-group has-feedback">
+                    <form action="Post">
+
                         <input type="text" id="title" name="title" class="form-control" placeholder="✍️ Add item..."/>
-                        <i class="fa fa-plus form-control-feedback add-btn" id="addBtn" title="Add item"></i>
-                     </div>
+                        <input type="textarea" id="discription" name="discription" class="form-control" placeholder="✍️ Task Discription ..."/>
+
+                        <button class="btn btn-primary mt-1" id="btn"> Add Task</button>
+
+                     </form>
                   </div>
                   <p class="err text-danger text-center hidden"><i class="fa fa-warning"></i> Oops! Please, enter name item</p>
                   <p class="no-items text-muted text-center hidden"><i class="fa fa-ban"></i></p>
@@ -94,10 +98,8 @@
          </main>
          </div>
          <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-         <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+         <script src="https://js.pusher.com/8.0.1/pusher.min.js"></script>
          <script  src="{{asset('js/addTask.js')}}"></script>
-         <script  src="{{asset('js/index.js')}}"></script>
          <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
    </body>
    <div class"footer">
